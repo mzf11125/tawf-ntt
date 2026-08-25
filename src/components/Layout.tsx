@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 src={PARTNER.logo}
                 alt={PARTNER.name}
                 title={`In partnership with ${PARTNER.name}`}
-                className="hidden sm:block h-7 w-auto invert"
+                className="hidden sm:block h-5 w-auto invert"
               />
             </div>
 
@@ -129,7 +129,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <img
               src={PARTNER.logo}
               alt={PARTNER.name}
-              className="h-8 w-auto mb-4"
+              className="h-6 w-auto mb-4"
             />
             <p className="text-sm max-w-sm leading-relaxed">
               The NTT Emergency Relief is a joint initiative of Tawf Islamic Foundation and Telaga

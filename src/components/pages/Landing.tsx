@@ -112,7 +112,7 @@ export default function Landing() {
                   className="h-12 w-auto invert"
                 />
                 <span className="font-serif italic text-2xl text-tawf-gold">×</span>
-                <img src={PARTNER.logo} alt={PARTNER.name} className="h-9 w-auto invert" />
+                <img src={PARTNER.logo} alt={PARTNER.name} className="h-6 w-auto invert" />
               </div>
             </div>
 
@@ -189,7 +189,7 @@ export default function Landing() {
               className="h-16 w-auto invert"
             />
             <span className="font-serif italic text-3xl text-tawf-gold">×</span>
-            <img src={PARTNER.logo} alt={PARTNER.name} className="h-12 w-auto invert" />
+            <img src={PARTNER.logo} alt={PARTNER.name} className="h-7 w-auto invert" />
           </div>
 
           <div className="max-w-2xl">
