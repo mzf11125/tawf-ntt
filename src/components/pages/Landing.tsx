@@ -9,7 +9,7 @@ import {
   ExternalLink,
   HeartHandshake,
 } from 'lucide-react';
-import { DONATION_ADDRESS, isPlaceholderAddress } from '../../lib/config';
+import { DONATION_ADDRESS, isPlaceholderAddress, PARTNER } from '../../lib/config';
 import { Section, SectionHeader, Card, Badge } from '../ui';
 import DonationPanel from '../DonationPanel';
 import SendCard from '../SendCard';
@@ -45,7 +45,11 @@ const RELIEF_AREAS = [
 const FAQS = [
   {
     q: 'Where does my crypto go?',
-    a: 'Directly to the NTT relief wallet address shown on this page. There is no intermediary and no custody — the transfer is signed by your wallet and recorded on-chain, where anyone can verify it.',
+    a: 'Directly to the Tawf × Telaga Charity multisig address shown on this page. There is no intermediary and no custody — the transfer is signed by your wallet and recorded on-chain, where anyone can verify it.',
+  },
+  {
+    q: 'Who runs this relief fund?',
+    a: 'Tawf Islamic Foundation and Telaga Charity run it together through a shared multisig. Funds are signed and released jointly, so neither foundation can move the wallet alone.',
   },
   {
     q: 'Which networks can I donate on?',
@@ -53,7 +57,7 @@ const FAQS = [
   },
   {
     q: 'Why are there gas fees?',
-    a: 'Gas is paid to the network, not to Tawf. On Polygon, Base, and Arbitrum these fees are small (typically a fraction of a dollar), and 100% of the amount you send reaches the relief wallet.',
+    a: 'Gas is paid to the network, not to Tawf or Telaga Charity. On Polygon, Base, and Arbitrum these fees are small (typically a fraction of a dollar), and 100% of the amount you send reaches the multisig.',
   },
   {
     q: 'How can I verify my donation?',
@@ -93,11 +97,24 @@ export default function Landing() {
               <span className="italic text-tawf-gold">Send crypto, directly.</span>
             </h1>
 
-            <p className="text-xl text-tawf-muted font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-tawf-muted font-light leading-relaxed mb-8 max-w-2xl mx-auto">
               Floods and cyclones have torn through East Nusa Tenggara. Your crypto reaches the
-              relief wallet on-chain — traceable, transparent, and straight to the families who
-              need it.
+              Tawf × Telaga Charity multisig on-chain — traceable, transparent, and straight to the
+              families who need it.
             </p>
+
+            <div className="flex flex-col items-center gap-3 mb-10">
+              <span className="label-caps text-tawf-muted">A Tawf × Telaga Charity initiative</span>
+              <div className="flex items-center gap-4">
+                <img
+                  src="/images/tawftransparent.png"
+                  alt="Tawf Islamic Foundation"
+                  className="h-12 w-auto invert"
+                />
+                <span className="font-serif italic text-2xl text-tawf-gold">×</span>
+                <img src={PARTNER.logo} alt={PARTNER.name} className="h-9 w-auto invert" />
+              </div>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -152,6 +169,41 @@ export default function Landing() {
         </div>
       </Section>
 
+      {/* Partnership */}
+      <Section id="partnership" background="sand" className="border-t border-tawf-green/10">
+        <SectionHeader
+          centered
+          badge="Partnership"
+          title="Two foundations, one wallet"
+          description="Tawf Islamic Foundation and Telaga Charity have joined forces to run the NTT emergency relief as a single, transparent effort — governed together through a shared multisig."
+        />
+
+        <motion.div
+          {...reveal}
+          className="flex flex-col items-center gap-8 text-center"
+        >
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+            <img
+              src="/images/tawftransparent.png"
+              alt="Tawf Islamic Foundation"
+              className="h-16 w-auto invert"
+            />
+            <span className="font-serif italic text-3xl text-tawf-gold">×</span>
+            <img src={PARTNER.logo} alt={PARTNER.name} className="h-12 w-auto invert" />
+          </div>
+
+          <div className="max-w-2xl">
+            <p className="label-caps text-tawf-muted mb-4">Shared multisig</p>
+            <p className="font-mono tnum text-sm text-tawf-green break-all">{DONATION_ADDRESS}</p>
+            <p className="mt-6 text-tawf-muted leading-relaxed">
+              Funds are held and released jointly by both foundations, so no single party can move
+              the wallet alone. Every disbursement is signed collectively and recorded on-chain,
+              where anyone can follow it.
+            </p>
+          </div>
+        </motion.div>
+      </Section>
+
       {/* Transparency */}
       <Section id="transparency" background="ink">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -182,7 +234,7 @@ export default function Landing() {
           </div>
 
           <Card className="bg-white/5 border-white/10">
-            <span className="label-caps text-tawf-gold">Relief Wallet</span>
+            <span className="label-caps text-tawf-gold">Tawf × Telaga Charity Multisig</span>
             <p className="mt-4 font-mono tnum text-sm text-white break-all">{DONATION_ADDRESS}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Badge>Polygon</Badge>
@@ -190,10 +242,11 @@ export default function Landing() {
               <Badge>Arbitrum</Badge>
             </div>
             <p className="mt-6 text-sm text-tawf-sand/60">
-              One wallet, three networks. The same address receives native tokens and USDC.
+              One joint wallet, three networks. The same address receives native tokens and USDC,
+              held and signed collectively by both foundations.
               {isPlaceholderAddress && (
                 <span className="block mt-2 text-amber-300">
-                  Placeholder shown — real address configured at deploy.
+                  Placeholder address in use — do not send funds.
                 </span>
               )}
             </p>
@@ -205,7 +258,7 @@ export default function Landing() {
       <Section id="donate" background="sand">
         <SectionHeader
           badge="Donate"
-          title="Send crypto to the relief wallet"
+          title="Send crypto to the Tawf × Telaga multisig"
           description="Choose how you want to give: copy the address or scan the QR, or connect your wallet and sign the transfer yourself."
         />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -224,7 +277,7 @@ export default function Landing() {
           </div>
           <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Every unit reaches the field</h2>
           <p className="text-tawf-sand/80 text-xl leading-relaxed mb-10">
-            The relief wallet is used solely for emergency aid: shelter, clean water, and food for
+            The shared multisig is used solely for emergency aid: shelter, clean water, and food for
             flood- and cyclone-affected families in NTT. Distribution is documented and verifiable
             on-chain.
           </p>

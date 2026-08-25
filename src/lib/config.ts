@@ -3,21 +3,29 @@ import { http } from 'wagmi';
 import { arbitrum, base, polygon } from 'wagmi/chains';
 
 /**
- * The single donation wallet address. Every supported network sends to this
- * same address. It is intentionally a placeholder until a real address is set
- * via `VITE_DONATION_ADDRESS`; the UI refuses to let anyone send to it while
- * it still matches the placeholder.
+ * The joint Tawf × Telaga Charity multisig. Every supported network sends to
+ * this same address. It can be overridden at build time with
+ * `VITE_DONATION_ADDRESS` if the wallet ever needs to change.
  */
+export const TELAGA_MULTISIG = '0x0677C3ad6Df3A157Dce8f16b0Ef26a0EC753598C';
+
+/** Kept as a sentinel: the UI refuses to send while this value is in use. */
 export const PLACEHOLDER_ADDRESS = '0x000000000000000000000000000000000000dEaD';
 
 export const DONATION_ADDRESS = (
   (import.meta.env.VITE_DONATION_ADDRESS as string | undefined)?.trim() ||
-  PLACEHOLDER_ADDRESS
+  TELAGA_MULTISIG
 ) as `0x${string}`;
 
-/** True while the address is still the placeholder — never send funds to it. */
+/** True while the address is the placeholder sentinel — never send funds to it. */
 export const isPlaceholderAddress =
   DONATION_ADDRESS.toLowerCase() === PLACEHOLDER_ADDRESS.toLowerCase();
+
+/** Co-branding partner information. */
+export const PARTNER = {
+  name: 'Telaga Charity',
+  logo: '/images/telaga-logo.png',
+} as const;
 
 export interface DonationChain {
   id: number;
@@ -65,7 +73,7 @@ export const explorerLink = (chain: DonationChain, addr: string) =>
  * than a hard failure.
  */
 export const wagmiConfig = getDefaultConfig({
-  appName: 'Tawf NTT Emergency Relief',
+  appName: 'Tawf × Telaga Charity NTT Relief',
   projectId: import.meta.env.VITE_WC_PROJECT_ID ?? 'ntt_relief_local',
   chains: [polygon, base, arbitrum],
   transports: {

@@ -81,8 +81,8 @@ export default function SendCard() {
       </div>
 
       <p className="mt-3 text-tawf-muted">
-        Connect your wallet and sign a direct transfer to the relief wallet. You keep custody the
-        whole time — the page never touches your funds.
+        Connect your wallet and sign a direct transfer to the Tawf × Telaga Charity multisig. You
+        keep custody the whole time — the page never touches your funds.
       </p>
 
       {/* Network tabs */}
@@ -202,7 +202,7 @@ export default function SendCard() {
       {isPlaceholderAddress && (
         <div className="mt-4 flex items-start gap-2 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900" role="alert">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-          <span>Sending is disabled until a real relief wallet address is configured.</span>
+          <span>Sending is disabled until a real Tawf × Telaga Charity multisig is configured.</span>
         </div>
       )}
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { PARTNER } from '../lib/config';
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -25,13 +26,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           aria-label="Main navigation"
         >
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="https://tawf.foundation" aria-label="Tawf Islamic Foundation home">
+            <div className="flex items-center gap-4">
+              <a href="https://tawf.foundation" aria-label="Tawf Islamic Foundation home">
+                <img
+                  src="/images/tawftransparent.png"
+                  alt="Tawf Islamic Foundation"
+                  className="pt-1 h-14 w-auto invert"
+                />
+              </a>
+              <span className="hidden sm:block h-8 w-px bg-tawf-green/20" aria-hidden="true"></span>
               <img
-                src="/images/tawftransparent.png"
-                alt="Tawf Islamic Foundation"
-                className="pt-1 h-16 w-auto invert"
+                src={PARTNER.logo}
+                alt={PARTNER.name}
+                title={`In partnership with ${PARTNER.name}`}
+                className="hidden sm:block h-7 w-auto invert"
               />
-            </a>
+            </div>
 
             <div className="hidden md:flex items-center gap-6">
               <button
@@ -114,10 +124,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <img
               src="/images/tawftransparent.png"
               alt="Tawf Islamic Foundation"
-              className="-ml-3 h-24 w-auto mb-2"
+              className="-ml-3 h-20 w-auto mb-2"
+            />
+            <img
+              src={PARTNER.logo}
+              alt={PARTNER.name}
+              className="h-8 w-auto mb-4"
             />
             <p className="text-sm max-w-sm leading-relaxed">
-              Ethical finance on the blockchain. Baitul Maal for the digital age.
+              The NTT Emergency Relief is a joint initiative of Tawf Islamic Foundation and Telaga
+              Charity, run through a shared on-chain multisig.
             </p>
           </div>
 
@@ -186,9 +202,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs gap-4">
-          <p>&copy; {new Date().getFullYear()} Tawf Islamic Foundation. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Tawf Islamic Foundation &amp; Telaga Charity. All
+            rights reserved.
+          </p>
           <p className="max-w-md text-center md:text-right">
-            Crypto donations are sent directly to the relief wallet and recorded on-chain. Not tax
+            Crypto donations are sent directly to the shared multisig and recorded on-chain. Not tax
             or financial advice.
           </p>
         </div>

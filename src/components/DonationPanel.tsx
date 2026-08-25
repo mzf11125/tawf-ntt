@@ -30,15 +30,16 @@ export default function DonationPanel() {
         <div>
           <span className="label-caps text-tawf-gold">Donation Wallet</span>
           <h3 className="mt-2 font-serif text-2xl text-tawf-green">
-            Send directly to the NTT relief wallet
+            Send directly to the Tawf × Telaga multisig
           </h3>
         </div>
         <Wallet className="h-8 w-8 shrink-0 text-tawf-gold" aria-hidden />
       </div>
 
       <p className="mt-3 text-tawf-muted">
-        One wallet on every network. Funds go straight to the relief wallet — no intermediary, no
-        custody. Choose a network, then copy the address, scan the QR, or open your wallet.
+        One shared multisig on every network. Funds go straight to the Tawf × Telaga Charity wallet
+        — no intermediary, no custody. Choose a network, then copy the address, scan the QR, or open
+        your wallet.
       </p>
 
       {/* Network tabs */}
@@ -108,7 +109,7 @@ export default function DonationPanel() {
               fgColor="#0F3D30"
               bgColor="#ffffff"
               level="M"
-              aria-label={`QR code for the NTT relief wallet address (${chain.name})`}
+              aria-label={`QR code for the Tawf × Telaga Charity multisig address (${chain.name})`}
             />
           </div>
           <p className="text-xs text-tawf-muted text-center max-w-[160px]">
@@ -124,9 +125,8 @@ export default function DonationPanel() {
         >
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
           <span>
-            <strong>Placeholder address.</strong> The real relief wallet has not been configured yet
-            (set <code className="font-mono">VITE_DONATION_ADDRESS</code>). Do not send funds to this
-            address.
+            <strong>Placeholder address in use.</strong> A sentinel address is configured instead of
+            the Tawf × Telaga Charity multisig. Do not send funds to this address.
           </span>
         </div>
       )}
