@@ -45,7 +45,7 @@ const RELIEF_AREAS = [
 const FAQS = [
   {
     q: 'Where does my crypto go?',
-    a: 'Directly to the Tawf × Telaga Charity multisig address shown on this page. There is no intermediary and no custody — the transfer is signed by your wallet and recorded on-chain, where anyone can verify it.',
+    a: 'Directly to the Tawf × Telaga Charity multisig address shown on this page. There is no intermediary and no custody. The transfer is signed by your wallet and recorded on-chain, where anyone can verify it.',
   },
   {
     q: 'Who runs this relief fund?',
@@ -99,7 +99,7 @@ export default function Landing() {
 
             <p className="text-xl text-tawf-muted font-light leading-relaxed mb-8 max-w-2xl mx-auto">
               Floods and cyclones have torn through East Nusa Tenggara. Your crypto reaches the
-              Tawf × Telaga Charity multisig on-chain — traceable, transparent, and straight to the
+              Tawf × Telaga Charity multisig on-chain, traceable, transparent, and straight to the
               families who need it.
             </p>
 
@@ -141,7 +141,7 @@ export default function Landing() {
         <SectionHeader
           badge="The Case"
           title="When the waters rise in the east"
-          description="Nusa Tenggara Timur sits in the path of the region's fiercest cyclones. Repeated floods displace families, destroy homes, and cut off clean water — and recovery is slowest in the villages with the least."
+          description="Nusa Tenggara Timur sits in the path of the region's fiercest cyclones. Repeated floods displace families, destroy homes, and cut off clean water, and recovery is slowest in the villages with the least."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -175,7 +175,7 @@ export default function Landing() {
           centered
           badge="Partnership"
           title="Two foundations, one wallet"
-          description="Tawf Islamic Foundation and Telaga Charity have joined forces to run the NTT emergency relief as a single, transparent effort — governed together through a shared multisig."
+          description="Tawf Islamic Foundation and Telaga Charity have joined forces to run the NTT emergency relief as a single, transparent effort, governed together through a shared multisig."
         />
 
         <motion.div
@@ -221,7 +221,7 @@ export default function Landing() {
             </p>
             <ul className="space-y-4 text-tawf-sand/80">
               {[
-                'Direct transfer — you sign, the wallet receives',
+                'Direct transfer: you sign, the wallet receives',
                 'Public address anyone can audit on a block explorer',
                 'No middleman holding funds on your behalf',
               ].map((t) => (
@@ -246,7 +246,7 @@ export default function Landing() {
               held and signed collectively by both foundations.
               {isPlaceholderAddress && (
                 <span className="block mt-2 text-amber-300">
-                  Placeholder address in use — do not send funds.
+                  Placeholder address in use. Do not send funds.
                 </span>
               )}
             </p>

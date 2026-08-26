@@ -37,8 +37,8 @@ export default function DonationPanel() {
       </div>
 
       <p className="mt-3 text-tawf-muted">
-        One shared multisig on every network. Funds go straight to the Tawf × Telaga Charity wallet
-        — no intermediary, no custody. Choose a network, then copy the address, scan the QR, or open
+        One shared multisig on every network. Funds go straight to the Tawf × Telaga Charity wallet,
+        with no intermediary and no custody. Choose a network, then copy the address, scan the QR, or open
         your wallet.
       </p>
 

@@ -82,7 +82,7 @@ export default function SendCard() {
 
       <p className="mt-3 text-tawf-muted">
         Connect your wallet and sign a direct transfer to the Tawf × Telaga Charity multisig. You
-        keep custody the whole time — the page never touches your funds.
+        keep custody the whole time. The page never touches your funds.
       </p>
 
       {/* Network tabs */}
