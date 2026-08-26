@@ -278,8 +278,7 @@ export default function Landing() {
           <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Every unit reaches the field</h2>
           <p className="text-tawf-sand/80 text-xl leading-relaxed mb-10">
             The shared multisig is used solely for emergency aid: shelter, clean water, and food for
-            flood- and cyclone-affected families in NTT. Distribution is documented and verifiable
-            on-chain.
+            flood- and cyclone-affected families in NTT.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {RELIEF_AREAS.map((a) => (
